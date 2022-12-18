@@ -5,33 +5,51 @@ export const schema = {
   pages: [
     {
       name: 'personalInformation',
-      navigationTitle: 'Personal information',
-      navigationDescription: 'Tell us about you',
+      navigationTitle: {
+        default: 'Personal information',
+        fr: 'Informations personnelles',
+      },
+      navigationDescription: {
+        default: 'Tell us about you',
+        fr: 'Parlez nous de vous',
+      },
       startWithNewLine: false,
       showQuestionNumbers: 'off',
       elements: [
         {
           type: 'text',
           name: 'fullname',
-          title: 'Full name',
+          title: {
+            default: 'Full name',
+            fr: 'Nom et prénom',
+          },
           isRequired: true,
         },
         {
           type: 'text',
           name: 'address',
-          title: 'Address',
+          title: {
+            default: 'Address',
+            fr: 'Adresse',
+          },
           isRequired: true,
         },
         {
           type: 'text',
           name: 'country',
-          title: 'Country',
+          title: {
+            default: 'Country',
+            fr: 'Pays',
+          },
           isRequired: true,
         },
         {
           type: 'text',
           name: 'phone',
-          title: 'Telephone number',
+          title: {
+            default: 'Telephone number',
+            fr: 'Numéro de téléphone',
+          },
           inputType: 'tel',
           isRequired: true,
           validators: [
@@ -45,7 +63,10 @@ export const schema = {
         {
           type: 'text',
           name: 'email',
-          title: 'Email',
+          title: {
+            default: 'Email',
+            fr: 'Adresse email',
+          },
           inputType: 'email',
           isRequired: true,
         },
@@ -53,52 +74,106 @@ export const schema = {
     },
     {
       name: 'educationTraining',
-      navigationTitle: 'Education and training',
-      navigationDescription: 'Tell us about your education',
+      navigationTitle: {
+        default: 'Education and training',
+        fr: 'Éducation et formation',
+      },
+      navigationDescription: {
+        default: 'Tell us about your education',
+        fr: 'Parlez-nous de votre formation',
+      },
       elements: [
         {
           type: 'paneldynamic',
           name: 'educations',
-          title: 'Educations',
+          title: {
+            default: 'Educations',
+            fr: 'Formations',
+          },
           keyName: 'diploma',
           showQuestionNumbers: 'off',
-          templateTitle: 'Education #{panelIndex}',
+          templateTitle: {
+            default: 'Education #{panelIndex}',
+            fr: 'Formation #{panelIndex}',
+          },
           minPanelCount: 1,
           maxPanelCount: 3,
-          panelAddText: 'Add another education',
-          panelRemoveText: 'Remove education',
+          panelAddText: {
+            default: 'Add another education',
+            fr: 'Ajouter une autre formation',
+          },
+          panelRemoveText: {
+            default: 'Remove education',
+            fr: 'Supprimer la formation',
+          },
           templateElements: [
             {
               type: 'dropdown',
               name: 'diploma',
-              title: 'Diploma',
+              title: {
+                default: 'Diploma',
+                fr: 'Diplôme',
+              },
               isRequired: true,
               showNoneItem: true,
               showOtherItem: true,
               choices: [
-                'High school Degree',
-                'Bachelor Degree',
-                'Master Degree',
-                'Doctoral Degree',
+                {
+                  value: 'bac',
+                  text: {
+                    default: 'High school Degree',
+                    fr: 'Baccalauréat',
+                  },
+                },
+                {
+                  value: 'bachelor',
+                  text: {
+                    default: 'Bachelor Degree',
+                    fr: 'License',
+                  },
+                },
+                {
+                  value: 'master',
+                  text: {
+                    default: 'Master Degree',
+                    fr: 'Master',
+                  },
+                },
+                {
+                  value: 'doctorate',
+                  text: {
+                    default: 'Doctoral Degree',
+                    fr: 'Doctorat',
+                  },
+                },
               ],
             },
             {
               type: 'text',
-              name: 'school1',
-              title: 'School or University',
+              name: 'school',
+              title: {
+                default: 'School or University',
+                fr: 'Ecole ou université',
+              },
               isRequired: true,
             },
             {
               type: 'text',
               name: 'graduationYear',
-              title: 'Graduation year',
+              title: {
+                default: 'Graduation year',
+                fr: "Année d'obtention du diplôme",
+              },
               inputType: 'date',
               isRequired: true,
             },
             {
               type: 'comment',
               name: 'description',
-              title: 'Description of what you have studied',
+              title: {
+                default: 'Description of what you have studied',
+                fr: 'Description de ce que vous avez étudié',
+              },
             },
           ],
         },
@@ -106,44 +181,74 @@ export const schema = {
     },
     {
       name: 'experience',
-      navigationTitle: 'Experience',
-      navigationDescription: 'Tell us more about your experience',
+      navigationTitle: {
+        default: 'Experience',
+        fr: 'Experience',
+      },
+      navigationDescription: {
+        default: 'Tell us more about your experience',
+        fr: 'Dites-nous en plus sur votre expérience',
+      },
       elements: [
         {
           type: 'paneldynamic',
           name: 'experiences',
-          title: 'Experiences',
+          title: {
+            default: 'Experiences',
+            fr: 'Expériences',
+          },
           keyName: 'position',
           showQuestionNumbers: 'off',
-          templateTitle: 'Education #{panelIndex}',
+          templateTitle: {
+            default: 'Experience #{panelIndex}',
+            fr: 'Expérience #{panelIndex}',
+          },
           minPanelCount: 1,
           maxPanelCount: 3,
-          panelAddText: 'Add another experience',
-          panelRemoveText: 'Remove experience',
+          panelAddText: {
+            default: 'Add another experience',
+            fr: 'Ajouter une autre expérience',
+          },
+          panelRemoveText: {
+            default: 'Remove experience',
+            fr: "Supprimer l'expérience",
+          },
           templateElements: [
             {
               type: 'text',
               name: 'position',
-              title: 'Position',
+              title: {
+                default: 'Position',
+                fr: 'Poste',
+              },
               isRequired: true,
             },
             {
               type: 'text',
               name: 'company',
-              title: 'Company',
+              title: {
+                default: 'Company',
+                fr: 'Entreprise',
+              },
               isRequired: true,
             },
             {
               type: 'text',
               name: 'startDate',
-              title: 'Start date',
+              title: {
+                default: 'Start date',
+                fr: 'Date de début',
+              },
               inputType: 'date',
               isRequired: true,
             },
             {
               type: 'text',
               name: 'endDate',
-              title: 'End date',
+              title: {
+                default: 'End date',
+                fr: 'Date de fin',
+              },
               inputType: 'date',
               isRequired: true,
               visibleIf: '{panel.untilNow}=false',
@@ -151,14 +256,20 @@ export const schema = {
             {
               type: 'boolean',
               name: 'untilNow',
-              title: 'Until now',
+              title: {
+                default: 'Until now',
+                fr: "Jusqu'à maintenant",
+              },
               isRequired: true,
               defaultValue: false,
             },
             {
               type: 'comment',
               name: 'description',
-              title: 'Description of what you have worked on',
+              title: {
+                default: 'Description of what you have worked on',
+                fr: 'Description de ce sur quoi vous avez travaillé',
+              },
             },
           ],
         },
@@ -166,13 +277,22 @@ export const schema = {
     },
     {
       name: 'resumeCoverLetter',
-      navigationTitle: 'Resume and cover letter',
-      navigationDescription: 'Tell us why you are suitable for the position',
+      navigationTitle: {
+        default: 'Resume and cover letter',
+        fr: 'CV et lettre de motivation',
+      },
+      navigationDescription: {
+        default: 'Tell us why you are suitable for the position',
+        fr: 'Dites-nous pourquoi vous correspondez au poste',
+      },
       elements: [
         {
           type: 'file',
           name: 'resume',
-          title: 'Please upload your resume',
+          title: {
+            default: 'Please upload your resume',
+            fr: 'Veuillez télécharger votre CV',
+          },
           showPreview: true,
           maxSize: 102400,
           isRequired: true,
@@ -180,7 +300,10 @@ export const schema = {
         {
           type: 'comment',
           name: 'coverLetter',
-          title: 'why you are suitable for the position ?',
+          title: {
+            default: 'why you are suitable for the position ?',
+            fr: 'pourquoi vous convenez pour le poste ?',
+          },
           isRequired: true,
         },
       ],
