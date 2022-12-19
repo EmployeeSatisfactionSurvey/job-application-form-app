@@ -252,6 +252,16 @@ export const schema = {
               inputType: 'date',
               isRequired: true,
               visibleIf: '{panel.untilNow}=false',
+              validators: [
+                {
+                  type: 'expression',
+                  expression: '{panel.startDate} < {panel.endDate}',
+                  text: {
+                    default: 'The end date should be after the start date',
+                    fr: 'La date du fin doit être inférieur à la date du début',
+                  },
+                },
+              ],
             },
             {
               type: 'boolean',
